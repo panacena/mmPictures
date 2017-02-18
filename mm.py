@@ -7,9 +7,6 @@ from os import system
 第一步: 从 http://www.zngirls.com/rank/sum/ 开始抓取MM点击头像的链接(注意是分页的)
 #第二部  http://www.zngirls.com/girl/21751/ 抓取每一个写真集合的链接(注意是分页的)
 #第三部 http://www.zngirls.com/g/19671/1.html 在写真图片的具体页面抓取图片(注意是分页的)
-
-本demo使用python2.7版本。 请知悉
-
 """
 pciturelist=[]
 
@@ -52,7 +49,8 @@ def mmRankitem(url):
 
     pages = htmlpath.xpath('//div[@class="rankli_imgdiv"]/a/@href')
     for i in range(len(pages)):
-       getAlbums("http://www.zngirls.com/" + pages[i])
+       print  "http://www.zngirls.com/" + pages[i]+"album/"
+       getAlbums("http://www.zngirls.com/" + pages[i]+"/album/")
        #print "http://www.zngirls.com/" + pages[i]
 
 
@@ -69,6 +67,7 @@ def getAlbums(girlUrl):
 
     pages = htmlpath.xpath('//div[@class="igalleryli_div"]/a/@href')
     for i in range(len(pages)):
+
         getPagePicturess("http://www.zngirls.com/" + pages[i]+"/album/")
 
 
@@ -117,7 +116,7 @@ def savePictures(itemPagesurl):
                 , "Connection": "keep-alive"
                 , "Referer": pages[i]
             }
-            req = urllib2.Request(pages[i], headers=headers)
+            """req = urllib2.Request(pages[i], headers=headers)
 
             urlhtml = urllib2.urlopen(req)
 
@@ -125,7 +124,7 @@ def savePictures(itemPagesurl):
 
             binfile = open('%s.jpg' % ( names[i] ) , "wb")
             binfile.write(respHtml);
-            binfile.close();
+            binfile.close();"""
         except Exception :
             pass
 
