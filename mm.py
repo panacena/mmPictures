@@ -116,7 +116,7 @@ def savePictures(itemPagesurl):
                 , "Connection": "keep-alive"
                 , "Referer": pages[i]
             }
-            """req = urllib2.Request(pages[i], headers=headers)
+            req = urllib2.Request(pages[i], headers=headers)
 
             urlhtml = urllib2.urlopen(req)
 
@@ -124,7 +124,7 @@ def savePictures(itemPagesurl):
 
             binfile = open('%s.jpg' % ( names[i] ) , "wb")
             binfile.write(respHtml);
-            binfile.close();"""
+            binfile.close();
         except Exception :
             pass
 
