@@ -97,7 +97,8 @@ def getAlbums(girlUrl):
 
     pages = htmlpath.xpath('//div[@class="igalleryli_div"]/a/@href')
     for i in range(len(pages)):
-        print "http://www.zngirls.com/" + pages[i]
+         print  "http://www.zngirls.com/" + pages[i]+"album/"
+         getAlbums("http://www.zngirls.com/" + pages[i]+"/album/")
 ```
 
 **3.  从每一页中获取图片的url，已经每一张图片的名称，方便下一步进行下载。**
