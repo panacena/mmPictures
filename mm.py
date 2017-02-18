@@ -7,6 +7,9 @@ from os import system
 第一步: 从 http://www.zngirls.com/rank/sum/ 开始抓取MM点击头像的链接(注意是分页的)
 #第二部  http://www.zngirls.com/girl/21751/ 抓取每一个写真集合的链接(注意是分页的)
 #第三部 http://www.zngirls.com/g/19671/1.html 在写真图片的具体页面抓取图片(注意是分页的)
+
+本demo使用python2.7版本。 请知悉
+
 """
 pciturelist=[]
 
