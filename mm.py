@@ -68,7 +68,7 @@ def getAlbums(girlUrl):
     pages = htmlpath.xpath('//div[@class="igalleryli_div"]/a/@href')
     for i in range(len(pages)):
 
-        getPagePicturess("http://www.zngirls.com/" + pages[i]+"/album/")
+        getPagePicturess("http://www.zngirls.com/" + pages[i])
 
 
 """
@@ -97,14 +97,16 @@ def savePictures(itemPagesurl):
         , "Referer": "image / webp, image / *, * / *;q = 0.8"
         ,"Accept":"image/webp,image/*,*/*;q=0.8"
     }
-    req = urllib2.Request(itemPagesurl, headers=header)
-    html = urllib2.urlopen(req)
-    htmldata = html.read()
-    htmlpath = etree.HTML(htmldata)
-    print itemPagesurl
-    pages = htmlpath.xpath('//div[@class="gallery_wrapper"]/ul/img/@src')
-
-    names = htmlpath.xpath('//div[@class="gallery_wrapper"]/ul/img/@alt')
+    try:
+        req = urllib2.Request(itemPagesurl, headers=header)
+        html = urllib2.urlopen(req)
+        htmldata = html.read()
+        htmlpath = etree.HTML(htmldata)
+        print itemPagesurl
+        pages = htmlpath.xpath('//div[@class="gallery_wrapper"]/ul/img/@src')
+        names = htmlpath.xpath('//div[@class="gallery_wrapper"]/ul/img/@alt')
+    except Exception:
+        pass
     for i in range(len(pages) ):
         print pages[i]
         pciturelist.append(pages[i])
@@ -139,4 +141,4 @@ fl.close()
 print '关机ing'
 """
 print 'finish'
-#system('shutdown -s')
+system('shutdown -s')
