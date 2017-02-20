@@ -3,7 +3,7 @@
 
 
 
-![图片站首页](http://upload-images.jianshu.io/upload_images/2825714-ef26e67d4bae562d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![图片站首页](https://raw.githubusercontent.com/panacena/mmPictures/master/1240.png)
 
 里面的美女**露骨而不露点**，简直是宅男福利。一时兴起，决定将网站上的图片down下来研究研究。正好最近在研究python，所以决定用这个抓取图片存到本地，将图片url存到 mongodb以防止以后用。
 
@@ -24,16 +24,16 @@
 #####确定URL开始抓取
 1. 我们以 http://www.zngirls.com/rank/sum/ 为起始页面进行爬取，打开网页后右键查看源代码。
 打开这个url后，如图1。我们需要关心的是红色链接的内容。
-![图1](http://upload-images.jianshu.io/upload_images/2825714-0df64c0205dff852.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![图1](https://raw.githubusercontent.com/panacena/mmPictures/master/2.png)
 
 2. 这个如何查找呢?如果你用的是360浏览器，在MM图片那右击，选择“审查元素”。之后就可以查看到点击MM头像后跳转的url地址和MM头像的url地址  。图2：
-![图2](http://upload-images.jianshu.io/upload_images/2825714-0fcfbacb3b82c49b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![图2](https://raw.githubusercontent.com/panacena/mmPictures/master/3.png)
 
 3 . 现在还是没有看到写真的图片，我们点击MM的头像，进入到了下图的页面  http://www.zngirls.com/girl/21751/ 可以看到如图3这个页面也没有写真的具体图片，只是写真的封面集合。不急，我们继续点击封面。
-![图3](http://upload-images.jianshu.io/upload_images/2825714-f5853c0aacd1fae3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![图3](https://raw.githubusercontent.com/panacena/mmPictures/master/4.png)
 4 .  点击封面后，http://www.zngirls.com/g/19671/1.html  进入的页面就可以看到写真的具体图片了。这时我们就可以爬取图片地址了。当然，这个也是分页的，所以也需要获取一共多少页以及每一页的url。
 
-![Paste_Image.png](http://upload-images.jianshu.io/upload_images/2825714-951d879d2681d3b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Paste_Image.png](https://raw.githubusercontent.com/panacena/mmPictures/master/5.png)
 
 #####开始码代码吧
 从上面的步骤我们整理一下思路，大概分为以下三部：
@@ -189,11 +189,11 @@ def savePictures(itemPagesurl):
 
 ***
 **5. 执行完毕后(时间可能会比较长)，就可以在文件夹里面看到一张一张的图片都下载完毕。再这里注意的是防止出现反爬虫，可以用设置header或者代理等方式。**
-![图片下载到了文件夹中](http://upload-images.jianshu.io/upload_images/2825714-09ae9fa69c9e4ae4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![图片下载到了文件夹中](https://raw.githubusercontent.com/panacena/mmPictures/master/6.png)
 
 没有设置一些header等参数时，有时会出现如下这种情况，这种情况应该是网站有反爬虫的机制。
 
-![反爬虫](http://upload-images.jianshu.io/upload_images/2825714-d38b04d9f38fb81b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![反爬虫](https://raw.githubusercontent.com/panacena/mmPictures/master/7.png)
 
 
 ***
